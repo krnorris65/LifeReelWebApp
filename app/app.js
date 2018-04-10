@@ -1,9 +1,5 @@
 angular.module("LifeReelApp", ["ngRoute"])
 
-angular.module("LifeReelApp").run(function (FIREBASE_CONFIG) {
-	firebase.initializeApp(FIREBASE_CONFIG)
-})
-
 angular.module("LifeReelApp").config(function ($routeProvider) {
 	/**
      * Configure all Angular application routes here

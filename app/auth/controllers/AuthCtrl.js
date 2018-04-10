@@ -11,13 +11,12 @@ angular.module("LifeReelApp")
 		//uses JWT to seee if the user already exists
 		$scope.loginUser = function (credentials) {
 			$http({
-				method: "POST",
+				method: "GET",
 				url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
 			}).then(result => {
 				console.log(result)
 				localStorage.setItem("token", result.data)
 			})
-			clearInput()
 		}
 
 		//when a user registers an account, it first creates a new user with firebase using the email and password provided and logs them in to Life Reel
@@ -25,14 +24,12 @@ angular.module("LifeReelApp")
 			if($scope.user.first === undefined || $scope.user.last === undefined) {
 				alert("Please fill in all fields")
 			} else {
-				AuthFactory.registerWithEmail(registerNewUser)
-				.then(function (didRegister) {
+				$http({
+					method: "POST",
+					url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}&fname=${$scope.user.first}&lname=${$scope.user.last}`
+				}).then(result => {
+					console.log(result)
 					$scope.loginUser(registerNewUser)
-				}).then((loggedIn) => {
-					// then a user object is created with the user's first and last names. it is linked to the authentication with the uid 
-					newUserInfo.fullName = $scope.user.first + " " + $scope.user.last
-					newUserInfo.uid = firebase.auth().currentUser.uid
-					UserFactory.add(newUserInfo)
 				})
 			}
 
@@ -40,12 +37,11 @@ angular.module("LifeReelApp")
 		}
 
 		//register jwt
-		$scope.registerUser = function(registerNewUser) {
-			AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
-				$scope.loginUser(registerNewUser)
-			})
-			clearInput()
-		}
+		// $scope.registerUser = function(registerNewUser) {
+		// 	AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
+		// 		$scope.loginUser(registerNewUser)
+		// 	})
+		// }
 
 
 		//logs user out
@@ -59,9 +55,5 @@ angular.module("LifeReelApp")
 			$location.url("/auth")
 		}
 
-		clearInput = function() {
-			$scope.auth.email = "";
-			$scope.auth.password = "";
-		}
 
 	})
