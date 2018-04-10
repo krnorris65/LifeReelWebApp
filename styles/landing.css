@@ -1,0 +1,63 @@
+#mainPage {
+    display: flex;
+    justify-content: center;
+}
+
+.landingIcon {
+    width: 250px;
+    height: 250px;
+    opacity: .75;
+}
+
+.landingAction {
+    text-align: center;
+    margin: 0 100px;
+    position: relative;
+    
+}
+
+.landingText {
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border: 5px solid black;
+    position: absolute;
+    width: 260px;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+}
+
+.landingText:hover {
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (max-width:320px){
+    #mainPage{
+        display: block;
+    }
+
+    .landingIcon{
+        width: 200px;
+        height:200px;
+    }
+
+    .landingText{
+        width: 200px;
+    }
+
+    .landingAction{
+        margin: 0px;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width:425px){
+    div#mainPage{
+        display: block;
+    }
+    .landingAction{
+        margin: 0px;
+    }
+}

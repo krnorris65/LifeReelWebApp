@@ -1,0 +1,147 @@
+#mainFriends, #pendingRequests {
+    width: 80%;
+    margin: auto;
+}
+
+#sentRequests, #findFriends {
+    border-top: 5px solid black;
+
+}
+
+.friendName {
+    font-weight: bold;
+}
+
+.friendDate {
+    color: dimgray;
+    font-weight: normal;
+    display: block;
+    font-size: .8em;
+}
+
+/* "buttons" to navigate between the main friend page and the pending request page */
+.addFriend, .currentList, .addSegment {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px;
+    font-weight: normal;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.addFriend:hover, .currentList:hover, .addSegment:hover {
+    background-color: white;
+    color: black;
+}
+
+/* formatting of the different friends "boxes" */
+.current, .received, .sent, .search {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* formating for current friends */
+
+.friendReel {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.deleteIcon {
+    cursor: pointer;
+    margin-left: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+.trashWhite {
+    display: none;
+}
+
+/* changes color of trash icon when hovered over to white by displaying the white Icon and not displaying the black Icon */
+.trashIcon:hover .trashWhite {
+    display: inline;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.trashIcon:hover .trashBlack {
+    display: none;
+}
+
+
+/* the css below will display a description of what pressing the reel icon will do */
+.viewFriendReel {
+    display: none;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 2px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid white;
+    font-size: .85em;
+    
+}
+
+/* shows the text when the reel icon is hovered over */
+.viewFriendIcon:hover .viewFriendReel {
+    display: initial;
+    margin-left: 43px;
+    margin-top: -77px;
+}
+
+.viewFriendIcon:hover .friendReel {
+    background-image: url("../img/reelBlackFilled.png");
+    background-size: 40px 40px;
+}
+
+/* formatting of delete friend text box to make sure person is sure they want to delete that friend */
+#deleteFriend {
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index: 1; 
+    border-radius: 10px;
+    border: 2px solid white;
+    text-align: center;
+    padding: 5px;
+    font-size: .9em;
+    left: 210px;
+}
+
+#deleteFriend p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* formating for received and sent requests */
+.received button, .search button {
+    margin-left: 20px;
+}
+
+.received p, .sent p {
+    margin-top: 0;
+}
+
+@media only screen and (max-width: 425px){
+    .addFriend, .currentList, .addSegment {
+        font-size: .75em;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px){
+    .viewFriendIcon:hover .viewFriendReel {
+        display: none;
+    }
+}

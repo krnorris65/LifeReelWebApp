@@ -1,0 +1,37 @@
+<h1 class="pageHeading">{{heading}}</h1>
+<div id="mainFriends">
+
+    <section id="currentFriends">
+        <div ng-repeat="friend in allFriends" class="friends, current">
+            <a href="#!/friends/reel/{{friend.friendUID}}" class="viewFriendIcon">
+                <img src="../../../img/reelBlack.png" alt="view friend reel" class="friendReel">
+                <p class="viewFriendReel">View Reel</p>
+            </a>
+
+
+            <p class="friendName"> {{friend.friendName}} 
+                <i class="friendDate">Friends since {{friend.date | date:"shortDate"}}</i>
+            </p>
+            
+            <!-- Trash Can Icon allows user to remove a friend from their friend list -->
+            <section class="trashIcon">
+                    <img src="../../../img/trashBlack.png" alt="delete friend" class="deleteIcon trashBlack">
+                    <img src="../../../img/trashWhite.png" alt="delete friend" ng-click="deleteUser = !deleteUser" class="deleteIcon trashWhite">
+            </section>
+        
+            <section id="deleteFriend" ng-show="deleteUser">
+                <p>Are you sure you want to remove {{friend.friendName}} from your friends? <br>You will no longer be able to view their Life Reel</p>
+                <button ng-click="removeFriend(friend)">Yes</button>
+                <button ng-click="deleteUser = !deleteUser">No</button>
+            </section>
+        </div>
+
+    </section>
+
+    <section id="newFriends">
+        <h3 ng-click="showPending()" class="addFriend">Add New Friends</h3>
+    </section>
+
+    <section ng-include="'./app/friends/partials/sentRequests.html'" id="sentRequests"></section>
+
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Life Reel</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/auth.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/film.css">
+    <link rel="stylesheet" href="./styles/rating.css">
+    <link rel="stylesheet" href="./styles/clapper.css">
+    <link rel="stylesheet" href="./styles/snackbar.css">
+    <link rel="stylesheet" href="./styles/customReel.css">
+    <link rel="stylesheet" href="./styles/friends.css">
+    <link rel="stylesheet" href="./styles/landing.css">
+
+    <link rel="icon" type="image/png" href="img/movieicon.png" />
+</head>
+<body ng-app="LifeReelApp">
+
+    <nav ng-include="'app/navigation/partials/navigation.html'"></nav>
+
+    <div class="content" ng-view ng-cloak></div>
+
+    <footer>
+        <span>&copy; Life Reel</span>
+    </footer>
+
+
+
+    <script src="./lib/node_modules/angular/angular.min.js"></script>
+    <script src="./lib/node_modules/firebase/firebase.js"></script>
+    <script src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/app.config.js"></script>
+
+    <script src="./app/auth/factories/AuthFactory.js"></script>
+    <script src="./app/auth/factories/UserFactory.js"></script>
+    <script src="./app/auth/controllers/AuthCtrl.js"></script>
+
+    <script src="./app/navigation/controllers/NavCtrl.js"></script>
+    
+    <script src="./app/events/factories/EventFactory.js"></script>
+    <script src="./app/events/controllers/LandingCtrl.js"></script>
+    <script src="./app/events/controllers/AddEventCtrl.js"></script>
+    <script src="./app/events/controllers/ShowEventsCtrl.js"></script>
+    <script src="./app/events/controllers/EditEventCtrl.js"></script>
+
+    <script src="./app/friends/factories/FriendsFactory.js"></script>
+    <script src="./app/friends/controllers/FriendsCtrl.js"></script>
+    <script src="./app/friends/controllers/SearchCtrl.js"></script>
+    <script src="./app/friends/controllers/SentCtrl.js"></script>
+    <script src="./app/friends/controllers/ReceivedCtrl.js"></script>
+    <script src="./app/friends/controllers/FriendReelCtrl.js"></script>
+
+</body>
+</html>

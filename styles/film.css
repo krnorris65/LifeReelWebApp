@@ -1,0 +1,173 @@
+.clip {
+    width: 60%;
+    min-width: 300px;
+    min-height: 80px;
+    margin: auto;
+    padding-top: 25%;
+    position: relative;
+    background-color: #000;
+    background-image:
+        /*left side  */
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        /* right side */
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff),
+        linear-gradient(#fff, #fff);
+        
+
+    background-repeat:no-repeat;
+    background-position: 
+        /* left side */
+        3.5% 5%,
+        3.5% 27.5%,
+        3.5% 50%,
+        3.5% 72.5%, 
+        3.5% 95%,
+        /* right side */
+        96.5% 5%,
+        96.5% 27.5%,
+        96.5% 50%,
+        96.5% 72.5%, 
+        96.5% 95%;
+    
+    background-size:
+        /* left side */
+        9% 13%,
+        9% 13%,
+        9% 13%,
+        9% 13%,
+        9% 13%,
+        /* right side */
+        9% 13%,
+        9% 13%,
+        9% 13%,
+        9% 13%,
+        9% 13%;
+}
+
+.film {  
+  margin: 2.5% 14%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: lightgray;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1%;
+}
+
+.seg_title, .seg_date {
+    font-weight: bold;
+    font-size: 1.75em;
+    margin-bottom: 0
+}
+
+.seg_title {
+  margin-top: 0
+}
+
+.seg_edit img, .seg_private {
+    width: 35px;
+    height: 35px;
+}
+
+.seg_edit {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+
+.seg_private {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    z-index: 100; 
+}
+
+.private, .edit {
+    display: none;
+    font-size: .8em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid white;
+}
+
+.privateButton:hover .private {
+    display: block;
+    position:absolute;
+    left: 40px;
+    margin-bottom: 0px;
+    bottom: 8px;
+}
+
+.editButton:hover .edit {
+    display: block;
+    position:absolute;
+    right: 40px;
+    margin-top: 0px;
+    top: 8px;
+}
+
+.seg_description {
+    font-size: .9em;
+}
+
+.stars {
+    width: 40px;
+    height: 40px;
+}
+
+@media only screen and (max-width:425px){
+    
+    .stars, .seg_edit img, .seg_private {
+        width: 25px;
+        height: 25px;
+    }
+
+    .film{
+        font-size: .75em;
+         padding-top: 20%;
+
+    }
+
+    .seg_private {
+      top: 2px;
+    }
+
+    .privateButton:hover .private, .editButton:hover .edit {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 425px){
+    .clip{
+        min-width: 350px;
+    }
+    
+}
+
+@media only screen and (min-width: 321px) and (max-width: 768px){
+    .film{
+         padding-top: 10%;
+
+    }
+    
+}

@@ -1,0 +1,136 @@
+.clapper {
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.bottom {
+    margin: auto;
+    background-color: black;
+    min-height: 275px;
+    min-width: 300px;
+    max-width: 500px;
+    width: 60%;
+    text-align: center;
+    padding-top: 1%;
+    border: 1px solid black;
+    color: lightgray;
+    position: relative;
+}
+
+.top, .bottom_top {
+    margin: auto;
+    background-color: black;
+    background-image: 
+        linear-gradient(white, white),
+        linear-gradient(white, white),
+        linear-gradient(white, white),
+        linear-gradient(white, white);
+    background-repeat: no-repeat;
+    background-size: 
+        14% 100%, 
+        14% 100%, 
+        14% 100%, 
+        14% 100%;
+    background-position: 
+        6%, 
+        36%, 
+        66%, 
+        96%;
+    min-height: 55px;
+    min-width: 300px;
+    max-width: 500px;    
+    width: 60%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.top {
+    transform-origin: -2px;
+    transform: skewY(-6deg);
+}
+
+.form_heading {
+    font-size: 1.75em;
+}
+
+.form_label {
+    font-size: 1.5em;
+}
+
+.form_title, .form_date, .form_description {
+    font-size: 1.25em
+}
+
+
+.form_description {
+    width: 90%
+}
+
+/* only shows when the Private field is hovered over or the checkbox is checked */
+.privateText {
+    font-size: .8em;
+    margin-top: 0;
+    visibility: hidden;
+}
+
+
+.privateEvent:hover .privateText, .form_private:checked ~ .privateText{
+    visibility: visible;
+}
+
+/* specific to edit clapper */
+#trashIcon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+
+#deleteSegment {
+    background-color: white;
+    color: black;
+    position: absolute;
+    z-index: 1; 
+    width: 98%;
+    border-radius: 10px;
+    border: 5px solid black;
+    bottom: 0px;
+}
+
+@media only screen and (min-width:320px) and (max-width:768px){
+    .clapper{
+        margin-top: 120px;
+    }
+
+   .bottom{
+       font-size: .8em;
+   }   
+
+   #trashIcon {
+       width: 20px;
+       height: 20px;
+   }
+
+   .privateEvent:hover .privateText{
+        visibility: hidden;
+    }
+
+    .form_private:checked ~ .privateText {
+        visibility: visible;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width:425px){
+
+    .bottom, .top, .bottom_top {
+        min-width: 360px;
+    }
+
+    .clapper{
+        margin-top: 130px;
+    }
+
+}
