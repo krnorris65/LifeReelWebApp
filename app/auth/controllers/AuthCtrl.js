@@ -8,10 +8,16 @@ angular.module("LifeReelApp")
 		//object that user's first name and last name are added to
 		$scope.user = {}
 
-		//when a user logs in, firebase checks to see if they already exist and if so brings them to the landing page
+		//uses JWT to seee if the user already exists
 		$scope.loginUser = function (credentials) {
-			AuthFactory.authenticate(credentials).then(function (didLogin) {
+			$http({
+				method: "POST",
+				url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
+			}).then(result => {
+				console.log(result)
+				localStorage.setItem("token", result.data)
 			})
+			clearInput()
 		}
 
 		//when a user registers an account, it first creates a new user with firebase using the email and password provided and logs them in to Life Reel
@@ -33,20 +39,29 @@ angular.module("LifeReelApp")
 
 		}
 
-
-
-
+		//register jwt
+		$scope.registerUser = function(registerNewUser) {
+			AuthFactory.registerWithEmail(registerNewUser).then(function (didRegister) {
+				$scope.loginUser(registerNewUser)
+			})
+			clearInput()
+		}
 
 
 		//logs user out
 		$scope.logoutUser = function(){
-			AuthFactory.logout()
+			AuthFactory.removeToken()
 			$location.url("/auth")
 		}
 
 		//back to auth page
 		$scope.authPage = function(){
 			$location.url("/auth")
+		}
+
+		clearInput = function() {
+			$scope.auth.email = "";
+			$scope.auth.password = "";
 		}
 
 	})
