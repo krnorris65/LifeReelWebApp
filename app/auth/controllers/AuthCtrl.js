@@ -1,5 +1,5 @@
 angular.module("LifeReelApp")
-	.controller("AuthCtrl", function($scope, $location, AuthFactory, UserFactory) {
+	.controller("AuthCtrl", function($scope, $location, AuthFactory, $routeParams, $http) {
 
 		
 		//object that email and password are added to

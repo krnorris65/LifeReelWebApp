@@ -1,5 +1,5 @@
 angular.module("LifeReelApp").controller("NavCtrl",
-	function ($scope, AuthFactory, UserFactory) {
+	function ($scope, AuthFactory) {
 		
 
 
@@ -7,8 +7,8 @@ angular.module("LifeReelApp").controller("NavCtrl",
     Just a pass-through method to the AuthFactory method of the
     same name.
     */
-		$scope.isAuthenticated = () => AuthFactory.isAuthenticated()
-		$scope.notAuthenticated = () => AuthFactory.notAuthenticated()
+		// $scope.isAuthenticated = () => AuthFactory.isUserLoggedIn()
+		// $scope.notAuthenticated = () => AuthFactory.notAuthenticated()
 		
 
 

@@ -18,25 +18,7 @@ angular.module("LifeReelApp").config(function ($routeProvider) {
 			controller: "AuthCtrl"
 		})
 		.when("/landing", {
-			templateUrl: "app/events/partials/landing.html",
-			controller: "LandingCtrl"
-		}).when("/add", {
-			templateUrl: "app/events/partials/addEvent.html",
-			controller: "AddEventCtrl"
-		}).when("/reel", {
-			templateUrl: "app/events/partials/showEvents.html",
-			controller: "ShowEventsCtrl"
-		}).when("/edit/:eventId", {
-			templateUrl: "app/events/partials/editEvent.html",
-			controller: "EditEventCtrl"
-		}).when("/friends/list", {
-			templateUrl: "app/friends/partials/friends.html",
-			controller: "FriendsCtrl"
-		}).when("/friends/pending", {
-			templateUrl: "app/friends/partials/pending.html"
-		}).when("/friends/reel/:friendId", {
-			templateUrl: "app/friends/partials/friendReel.html",
-			controller: "FriendReelCtrl"
+			templateUrl: "app/events/partials/landing.html"
 		})
 		.otherwise("/auth")
 
