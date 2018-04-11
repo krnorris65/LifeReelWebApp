@@ -3,6 +3,14 @@ angular.module("LifeReelApp")
 		
 		let currentUserData = null
 
+		return Object.create(null, {
+			removeToken: {
+				value: () => {
+					return localStorage.removeItem("token");
+				}
+			}
+		})
+
 		// function isUserLoggedIn(){
 		// return localStorage.getItem("token") !== null;
 		// }
@@ -15,10 +23,10 @@ angular.module("LifeReelApp")
 		// return localStorage.getItem("token");
 		// }
 
-		function removeToken() {
-		return localStorage.removeItem("token");
-		}
+		// function removeToken() {
+			// return localStorage.removeItem("token");
+		// }
 
-		return {}
+		// return {}
 
 	})

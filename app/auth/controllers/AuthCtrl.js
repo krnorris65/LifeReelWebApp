@@ -11,11 +11,14 @@ angular.module("LifeReelApp")
 		//uses JWT to seee if the user already exists
 		$scope.loginUser = function (credentials) {
 			$http({
-				method: "GET",
+				method: "POST",
 				url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}`
 			}).then(result => {
-				console.log(result)
+				console.log("login", result)
 				localStorage.setItem("token", result.data)
+				if(result.status === 200){
+					$location.url("/landing")
+				}
 			})
 		}
 
@@ -28,8 +31,11 @@ angular.module("LifeReelApp")
 					method: "POST",
 					url: `http://localhost:5000/api/token?username=${$scope.auth.email}&password=${$scope.auth.password}&fname=${$scope.user.first}&lname=${$scope.user.last}`
 				}).then(result => {
-					console.log(result)
-					$scope.loginUser(registerNewUser)
+					localStorage.setItem("token", result.data);
+					console.log("register", result)
+					if(result.status === 200){
+						$location.url("/landing")
+					}
 				})
 			}
 
