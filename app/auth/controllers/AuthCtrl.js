@@ -50,11 +50,11 @@ angular.module("LifeReelApp")
 		// }
 
 
-		//logs user out
-		$scope.logoutUser = function(){
-			AuthFactory.removeToken()
-			$location.url("/auth")
-		}
+		//logs user out, not sure this function is needed here since it's on the NavCtrl
+		// $scope.logoutUser = function(){
+		// 	AuthFactory.removeToken()
+		// 	$location.url("/auth")
+		// }
 
 		//back to auth page
 		$scope.authPage = function(){

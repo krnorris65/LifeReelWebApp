@@ -15,7 +15,10 @@ angular.module("LifeReelApp").controller("NavCtrl",
 		/*
     Unauthenticate the client.
     */
-		$scope.logout = () => AuthFactory.logout()
+	 $scope.logoutUser = function(){
+			AuthFactory.removeToken()
+			$location.url("/auth")
+	}
 
 
 		
